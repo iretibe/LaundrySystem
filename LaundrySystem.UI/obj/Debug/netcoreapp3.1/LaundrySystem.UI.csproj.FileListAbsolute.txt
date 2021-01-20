@@ -198,3 +198,9 @@ C:\PROJECTS\LaundrySystem\LaundrySystem.UI\bin\Debug\netcoreapp3.1\runtimes\unix
 C:\PROJECTS\LaundrySystem\LaundrySystem.UI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\PROJECTS\LaundrySystem\LaundrySystem.UI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\PROJECTS\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\scopedcss\bundle\LaundrySystem.UI.styles.css
+C:\PROJECTS\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\Dashboard\Index.cshtml.g.cs
+C:\PROJECTS\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\Category\Index.cshtml.g.cs
+C:\PROJECTS\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\Customer\Index.cshtml.g.cs
+C:\PROJECTS\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\Order\Index.cshtml.g.cs
+C:\PROJECTS\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\Product\Index.cshtml.g.cs
+C:\PROJECTS\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\Service\Index.cshtml.g.cs
