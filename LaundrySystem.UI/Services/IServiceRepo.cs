@@ -8,6 +8,7 @@ namespace LaundrySystem.UI.Services
     public interface IServiceRepo
     {
         Task<IEnumerable<tblService>> GetAllServicesAsync();
+        //Task<IEnumerable<tblService>> GetServicesAsync();
         Task DeleteServiceAsync(tblService entity);
         tblService GetService(Guid ServiceID);
         Task AddServiceAsync(tblService model);

@@ -374,3 +374,10 @@ C:\Users\user\Videos\LaundrySystem\LaundrySystem.UI\bin\Debug\netcoreapp3.1\efpt
 C:\Users\user\Videos\LaundrySystem\LaundrySystem.UI\bin\Debug\netcoreapp3.1\AutoMapper.dll
 C:\Users\user\Videos\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\LaundrySystem.UI.csproj.CoreCompileInputs.cache
 C:\Users\user\Videos\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\LaundrySystem.UI.MvcApplicationPartsAssemblyInfo.cache
+C:\PROJECTS\LaundrySystem\LaundrySystem.UI\bin\Debug\netcoreapp3.1\efpt.config.json
+C:\PROJECTS\LaundrySystem\LaundrySystem.UI\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\PROJECTS\LaundrySystem\LaundrySystem.UI\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\PROJECTS\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\Service\Details.cshtml.g.cs
+C:\PROJECTS\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\Service\Create.cshtml.g.cs
+C:\PROJECTS\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\Service\Edit.cshtml.g.cs
+C:\PROJECTS\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\Service\Delete.cshtml.g.cs

@@ -43,6 +43,24 @@ namespace LaundrySystem.UI.Services
             return _context.tblService.FirstOrDefault(c => c.ServiceId == ServiceID);
         }
 
+        //public async Task<IEnumerable<tblService>> GetServicesAsync()
+        //{
+        //    var query = from s in _context.tblService
+        //                join a in _context.AspNetUsers
+        //                on s.CreatedBy equals a.Id
+        //                select new
+        //                {
+        //                    s.ServiceId,
+        //                    s.ServiceName,
+        //                    s.ServiceImage,
+        //                    s.AddedDate,
+        //                    s.CreatedBy,
+        //                    a.Id,
+        //                    //a.FirstName + a.LastName
+        //                };
+        //    //throw new NotImplementedException();
+        //}
+
         public bool Save()
         {
             return (_context.SaveChanges() >= 0);

@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\Videos\\LaundrySystem\\LaundrySystem.UI\\LaundrySystem.UI.csproj": {}
+    "C:\\PROJECTS\\LaundrySystem\\LaundrySystem.UI\\LaundrySystem.UI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\Videos\\LaundrySystem\\LaundrySystem.UI\\LaundrySystem.UI.csproj": {
+    "C:\\PROJECTS\\LaundrySystem\\LaundrySystem.UI\\LaundrySystem.UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\Videos\\LaundrySystem\\LaundrySystem.UI\\LaundrySystem.UI.csproj",
+        "projectUniqueName": "C:\\PROJECTS\\LaundrySystem\\LaundrySystem.UI\\LaundrySystem.UI.csproj",
         "projectName": "LaundrySystem.UI",
-        "projectPath": "C:\\Users\\user\\Videos\\LaundrySystem\\LaundrySystem.UI\\LaundrySystem.UI.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\Videos\\LaundrySystem\\LaundrySystem.UI\\obj\\",
+        "projectPath": "C:\\PROJECTS\\LaundrySystem\\LaundrySystem.UI\\LaundrySystem.UI.csproj",
+        "packagesPath": "C:\\Users\\Somad\\.nuget\\packages\\",
+        "outputPath": "C:\\PROJECTS\\LaundrySystem\\LaundrySystem.UI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Somad\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -31,6 +30,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -42,10 +42,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
-            "AutoMapper": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[8.1.0, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
@@ -94,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400-preview-015203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -31,7 +31,7 @@ namespace LaundrySystem.UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            //services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper(typeof(Startup));
 
             var connectionString = Configuration["connectionStrings:DefaultConnection"];
             services.AddDbContext<LaundrydbContext>(o => o.UseSqlServer(connectionString));

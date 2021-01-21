@@ -1,140 +1,91 @@
-﻿@{
-    ViewData["Title"] = "Service";
+﻿@model IEnumerable<LaundrySystem.UI.Entities.tblService>
+
+@{
+    ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Setup.cshtml";
 }
+
+<h1>Index</h1>
 
 @section Styles {
     <link href="~/assets/css/lib/data-table/buttons.bootstrap.min.css" rel="stylesheet" />
 }
-
-<div class="container-fluid">
-    <div class="row">
-
-        <div class="col-lg-4 p-l-0 title-margin-left">
-            <div class="page-header">
-                <div class="page-title">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a asp-controller="Dashboard" asp-action="Index">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Services</li>
-                    </ol>
-                </div>
+<div class="row">
+    <div class="col-lg-8 p-r-0 title-margin-right">
+        <div class="page-header">
+            <div class="page-title">
+                <h1>Hello, <span>Welcome Here</span></h1>
             </div>
         </div>
     </div>
-    <section id="main-content">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="bootstrap-data-table-panel">
-                        <div class="table-responsive">
-                            <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Service Name</th>
-                                        <th>Service Image</th>
-                                        <th>AddedDate</th>
-                                        <th>CreatedBy</th>
-                                        <th scope="col" class="text-center">Actions</th>
-                                    </tr>
-                                </thead>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <!-- /# card -->
-            </div>
-            <!-- /# column -->
-        </div>
-    </section>
-</div>
-
-
-<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header bg-blue text-white shadow-none">
-                <h6 class="modal-title" id="basicModalLabel">Add Country</h6>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form method="Post" class="form-horizontal" id="myForm">
-                    <div class="row">
-                        <div class="col-sm-12 mb-3">
-                            <div class="list-with-gap">
-                                <div class="floating-label">
-                                    <input type="text" class="form-control" id="floatingCountryName" placeholder="CountryName">
-                                    <label for="floatingCountryName">Country Name</label>
-                                </div>
-
-                                <div class="floating-label">
-                                    <input type="text" class="form-control" id="floatingNationality" placeholder="Nationality">
-                                    <label for="floatingNationality">Nationality</label>
-                                </div>
-
-                                <div class="floating-label">
-                                    <input type="text" class="form-control" id="floatingCountryCode" placeholder="CountryCode">
-                                    <label for="floatingCountryCode">Country Code</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button class="btn btn-success" type="button" data-dismiss="modal" id="btnSave" disabled>Submit</button>
-                        <button class="btn btn-warning" type="reset" data-dismiss="modal">Cancel</button>
-                    </div>
-                </form>
+    <!-- /# column -->
+    <div class="col-lg-4 p-l-0 title-margin-left">
+        <div class="page-header">
+            <div class="page-title">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-controller="Dashboard" asp-action="Index">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Services</li>
+                </ol>
             </div>
         </div>
     </div>
+    <!-- /# column -->
 </div>
+<p>
+    <a asp-action="Create" class="btn btn-info">Create New</a>
+</p>
+<table class="table table-striped table-bordered" id="grdService">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ServiceName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ServiceImage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AddedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedBy)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ServiceId" class="btn btn-warning">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ServiceId" class="btn btn-dark">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ServiceId" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 
-<div class="modal fade" id="EditbasicModal" tabindex="-1" role="dialog" aria-labelledby="basicModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header bg-blue text-white shadow-none">
-                <h6 class="modal-title" id="basicModalLabel">Edit Country</h6>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form method="Post" class="form-horizontal">
-                    <div class="row">
-                        <div class="col-sm-12 mb-3">
-                            <div class="list-with-gap">
-                                <div class="floating-label">
-                                    <input type="text" class="form-control" id="floatingCountryNames" placeholder="CountryName">
-                                    <label for="floatingCountryNames">Country Name</label>
-                                </div>
-
-                                <div class="floating-label">
-                                    <input type="text" class="form-control" id="floatingNationalitys" placeholder="Nationality">
-                                    <label for="floatingNationalitys">Nationality</label>
-                                </div>
-
-                                <div class="floating-label">
-                                    <input type="text" class="form-control" id="floatingCountryCodes" placeholder="CountryCode">
-                                    <label for="floatingCountryCodes">Country Code</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button class="btn btn-success" type="button" data-dismiss="modal" id="btnUpdate">Submit</button>
-                        <button class="btn btn-warning" type="reset" data-dismiss="modal">Cancel</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 
 
 @section Scripts{
+    <script>
+        $("#grdService").dataTable({
+
+        });
+    </script>
     <script src="~/assets/js/lib/data-table/datatables.min.js"></script>
     <script src="~/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
     <script src="~/assets/js/lib/data-table/buttons.flash.min.js"></script>
@@ -144,4 +95,5 @@
     <script src="~/assets/js/lib/data-table/buttons.html5.min.js"></script>
     <script src="~/assets/js/lib/data-table/buttons.print.min.js"></script>
     <script src="~/assets/js/lib/data-table/datatables-init.js"></script>
+    @*<script src="~/js/services.js"></script>*@
 }
