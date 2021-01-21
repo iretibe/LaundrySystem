@@ -29,6 +29,8 @@
     <link href="~/assets/css/lib/bootstrap.min.css" rel="stylesheet">
     <link href="~/assets/css/lib/helper.css" rel="stylesheet">
     <link href="~/assets/css/style.css" rel="stylesheet">
+
+    @RenderSection("Styles", false)
 </head>
 
 <body>
@@ -48,26 +50,26 @@
                             <i class="ti-home"></i> Dashboard <span class="badge badge-primary"></span> <span class="sidebar-collapse-icon ti-angle-down"></span>
                         </a>
                         @*<ul>
-                <li><a href="index.html">Dashboard 1</a></li>
-                <li><a href="index1.html">Dashboard 2</a></li>
-            </ul>*@
+                                <li><a href="index.html">Dashboard 1</a></li>
+                                <li><a href="index1.html">Dashboard 2</a></li>
+                            </ul>*@
                     </li>
 
                     @*<li class="label">Apps</li>*@
                     @*<li>
-            <a class="sidebar-sub-toggle">
-                <i class="ti-bar-chart-alt"></i> Charts <span class="sidebar-collapse-icon ti-angle-down"></span>
-            </a>
-            <ul>
-                <li><a href="chart-flot.html">Flot</a></li>
-                <li><a href="chart-morris.html">Morris</a></li>
-                <li><a href="chartjs.html">Chartjs</a></li>
-                <li><a href="chartist.html">Chartist</a></li>
-                <li><a href="chart-peity.html">Peity</a></li>
-                <li><a href="chart-sparkline.html">Sparkle</a></li>
-                <li><a href="chart-knob.html">Knob</a></li>
-            </ul>
-        </li>*@
+                            <a class="sidebar-sub-toggle">
+                                <i class="ti-bar-chart-alt"></i> Charts <span class="sidebar-collapse-icon ti-angle-down"></span>
+                            </a>
+                            <ul>
+                                <li><a href="chart-flot.html">Flot</a></li>
+                                <li><a href="chart-morris.html">Morris</a></li>
+                                <li><a href="chartjs.html">Chartjs</a></li>
+                                <li><a href="chartist.html">Chartist</a></li>
+                                <li><a href="chart-peity.html">Peity</a></li>
+                                <li><a href="chart-sparkline.html">Sparkle</a></li>
+                                <li><a href="chart-knob.html">Knob</a></li>
+                            </ul>
+                        </li>*@
                     <li><a asp-controller="Service" asp-action="Index"><i class="ti-calendar"></i> Service </a></li>
                     <li><a asp-controller="Customer" asp-action="Index"><i class="ti-calendar"></i> Customer </a></li>
                     <li><a asp-controller="Product" asp-action="Index"><i class="ti-email"></i> Product</a></li>
@@ -94,26 +96,26 @@
                         </ul>
                     </li>
                     @*<li>
-                        <a class="sidebar-sub-toggle">
-                            <i class="ti-panel"></i> Components <span class="sidebar-collapse-icon ti-angle-down"></span>
-                        </a>
-                        <ul>
-                            <li><a href="uc-calendar.html">Calendar</a></li>
-                            <li><a href="uc-carousel.html">Carousel</a></li>
-                            <li><a href="uc-weather.html">Weather</a></li>
-                            <li><a href="uc-datamap.html">Datamap</a></li>
-                            <li><a href="uc-todo-list.html">To do</a></li>
-                            <li><a href="uc-scrollable.html">Scrollable</a></li>
-                            <li><a href="uc-sweetalert.html">Sweet Alert</a></li>
-                            <li><a href="uc-toastr.html">Toastr</a></li>
-                            <li><a href="uc-range-slider-basic.html">Basic Range Slider</a></li>
-                            <li><a href="uc-range-slider-advance.html">Advance Range Slider</a></li>
-                            <li><a href="uc-nestable.html">Nestable</a></li>
+                            <a class="sidebar-sub-toggle">
+                                <i class="ti-panel"></i> Components <span class="sidebar-collapse-icon ti-angle-down"></span>
+                            </a>
+                            <ul>
+                                <li><a href="uc-calendar.html">Calendar</a></li>
+                                <li><a href="uc-carousel.html">Carousel</a></li>
+                                <li><a href="uc-weather.html">Weather</a></li>
+                                <li><a href="uc-datamap.html">Datamap</a></li>
+                                <li><a href="uc-todo-list.html">To do</a></li>
+                                <li><a href="uc-scrollable.html">Scrollable</a></li>
+                                <li><a href="uc-sweetalert.html">Sweet Alert</a></li>
+                                <li><a href="uc-toastr.html">Toastr</a></li>
+                                <li><a href="uc-range-slider-basic.html">Basic Range Slider</a></li>
+                                <li><a href="uc-range-slider-advance.html">Advance Range Slider</a></li>
+                                <li><a href="uc-nestable.html">Nestable</a></li>
 
-                            <li><a href="uc-rating-bar-rating.html">Bar Rating</a></li>
-                            <li><a href="uc-rating-jRate.html">jRate</a></li>
-                        </ul>
-                    </li>*@
+                                <li><a href="uc-rating-bar-rating.html">Bar Rating</a></li>
+                                <li><a href="uc-rating-jRate.html">jRate</a></li>
+                            </ul>
+                        </li>*@
                     <li>
                         <a class="sidebar-sub-toggle">
                             <i class="ti-layout-grid4-alt"></i> Table <span class="sidebar-collapse-icon ti-angle-down"></span>
@@ -127,25 +129,25 @@
                         </ul>
                     </li>
                     @*<li>
-                        <a class="sidebar-sub-toggle">
-                            <i class="ti-heart"></i> Icons <span class="sidebar-collapse-icon ti-angle-down"></span>
-                        </a>
-                        <ul>
-                            <li><a href="font-themify.html">Themify</a></li>
-                        </ul>
-                    </li>*@
+                            <a class="sidebar-sub-toggle">
+                                <i class="ti-heart"></i> Icons <span class="sidebar-collapse-icon ti-angle-down"></span>
+                            </a>
+                            <ul>
+                                <li><a href="font-themify.html">Themify</a></li>
+                            </ul>
+                        </li>*@
                     @*<li>
-                        <a class="sidebar-sub-toggle">
-                            <i class="ti-map"></i> Maps <span class="sidebar-collapse-icon ti-angle-down"></span>
-                        </a>
-                        <ul>
-                            <li><a href="gmaps.html">Basic</a></li>
-                            <li><a href="vector-map.html">Vector Map</a></li>
-                        </ul>
-                    </li>*@
+                            <a class="sidebar-sub-toggle">
+                                <i class="ti-map"></i> Maps <span class="sidebar-collapse-icon ti-angle-down"></span>
+                            </a>
+                            <ul>
+                                <li><a href="gmaps.html">Basic</a></li>
+                                <li><a href="vector-map.html">Vector Map</a></li>
+                            </ul>
+                        </li>*@
                     @*<li class="label">Form</li>
-                    <li><a href="form-basic.html"><i class="ti-view-list-alt"></i> Basic Form </a></li>
-                    <li class="label">Extra</li>*@
+                        <li><a href="form-basic.html"><i class="ti-view-list-alt"></i> Basic Form </a></li>
+                        <li class="label">Extra</li>*@
                     <li>
                         <a class="sidebar-sub-toggle">
                             <i class="ti-files"></i> Invoice <span class="sidebar-collapse-icon ti-angle-down"></span>
@@ -482,6 +484,9 @@
     <script src="~/assets/js/lib/owl-carousel/owl.carousel-init.js"></script>
     <!-- scripit init-->
     <script src="~/assets/js/dashboard2.js"></script>
+
+    @RenderSection("Scripts", required: false)
+    @RenderSection("modals", required: false)
 </body>
 
 </html>

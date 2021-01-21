@@ -1,0 +1,85 @@
+﻿{
+   "ContextClassName": "LaundrydbContext",
+   "ContextNamespace": "Entities",
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": true,
+   "ModelNamespace": "Entities",
+   "OutputContextPath": "Entities",
+   "OutputPath": "Entities",
+   "ProjectRootNamespace": "LaundrySystem.UI",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[AspNetRoleClaims]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[AspNetRoles]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[AspNetUserClaims]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[AspNetUserLogins]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[AspNetUserRoles]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[AspNetUsers]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[AspNetUserTokens]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[tblCategory]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[tblContact]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[tblProduct]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[tblSale]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[tblSaleDetail]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[tblService]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[tblShoppingCartItem]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[tblStatus]"
+      }
+   ],
+   "UseDatabaseNames": true,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": false,
+   "UseHandleBars": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseNodaTime": false,
+   "UseSpatial": false,
+   "UseStoredProcedures": false
+}

@@ -1,5 +1,8 @@
+using AutoMapper;
 using LaundrySystem.UI.Data;
+using LaundrySystem.UI.Entities;
 using LaundrySystem.UI.Models;
+using LaundrySystem.UI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -28,6 +31,10 @@ namespace LaundrySystem.UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //services.AddAutoMapper(typeof(Startup));
+
+            var connectionString = Configuration["connectionStrings:DefaultConnection"];
+            services.AddDbContext<LaundrydbContext>(o => o.UseSqlServer(connectionString));
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
@@ -47,6 +54,15 @@ namespace LaundrySystem.UI
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             //services.AddScoped<ILaundryHttpClient, LaundryHttpClient>();
             services.AddHttpClient();
+
+            services.AddScoped<IServiceRepo, ServiceRepo>();
+            //services.AddScoped<ICompanyProfileRepo, CompanyProfileRepo>();
+            //services.AddScoped<IDashboardRepo, DashboardRepo>();
+            //services.AddScoped<IProductPriceRepo, ProductPriceRepo>();
+            //services.AddScoped<IProductRepo, ProductRepo>();
+            //services.AddScoped<IProductStockRepo, ProductStockRepo>();
+            //services.AddScoped<IUserRepo, UserRepo>();
+            //services.AddScoped<ICategoryRepo, CategoryRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
