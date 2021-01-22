@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 
 namespace LaundrySystem.UI.Controllers
 {
-    [Route("Service")]
     public class ServiceController : Controller
     {
         //private readonly IServiceRepo _serviceRepo;
@@ -22,13 +21,11 @@ namespace LaundrySystem.UI.Controllers
             _context = context;
         }
 
-        [HttpGet("Index")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.tblService.ToListAsync());
         }
 
-        [HttpGet("Details/id")]
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -45,7 +42,6 @@ namespace LaundrySystem.UI.Controllers
             return View(products);
         }
 
-        [HttpGet("Create")]
         public IActionResult Create()
         {
             return View();
@@ -65,7 +61,6 @@ namespace LaundrySystem.UI.Controllers
         }
 
         // GET: Products/Edit/5
-        [HttpGet("Edit/id")]
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -113,7 +108,6 @@ namespace LaundrySystem.UI.Controllers
             return View(products);
         }
 
-        [HttpGet("Delete/id")]
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)

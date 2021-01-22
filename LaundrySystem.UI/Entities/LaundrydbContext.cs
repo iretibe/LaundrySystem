@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using LaundrySystem.UI.Models;
 
 namespace LaundrySystem.UI.Entities
 {
@@ -166,5 +167,7 @@ namespace LaundrySystem.UI.Entities
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+        public DbSet<LaundrySystem.UI.Models.ProductModel> ProductModel { get; set; }
     }
 }

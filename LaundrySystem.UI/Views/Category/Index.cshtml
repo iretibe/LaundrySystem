@@ -1,4 +1,104 @@
-﻿@{
-    ViewData["Title"] = "Category";
+﻿@model IEnumerable<LaundrySystem.UI.Entities.tblCategory>
+
+@{
+    ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Setup.cshtml";
+}
+
+@section Styles {
+    <link href="~/assets/css/lib/data-table/buttons.bootstrap.min.css" rel="stylesheet" />
+}
+<div class="row">
+    <div class="col-lg-8 p-r-0 title-margin-right">
+        <div class="page-header">
+            <div class="page-title">
+                <h1>Hello, <span>Welcome Here</span></h1>
+            </div>
+        </div>
+    </div>
+    <!-- /# column -->
+    <div class="col-lg-4 p-l-0 title-margin-left">
+        <div class="page-header">
+            <div class="page-title">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-controller="Dashboard" asp-action="Index">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Services</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- /# column -->
+</div>
+
+<p>
+    <a asp-action="Create" class="btn btn-info">Create New</a>
+</p>
+<table class="table" id="grdCategory">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhotoImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreateDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhotoImage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreateDate)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CategoryId" class="btn btn-warning">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.CategoryId" class="btn btn-dark">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CategoryId" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+@section Scripts{
+    <script>
+        $("#grdCategory").dataTable({
+
+        });
+    </script>
+    <script src="~/assets/js/lib/data-table/datatables.min.js"></script>
+    <script src="~/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
+    <script src="~/assets/js/lib/data-table/buttons.flash.min.js"></script>
+    <script src="~/assets/js/lib/data-table/jszip.min.js"></script>
+    <script src="~/assets/js/lib/data-table/pdfmake.min.js"></script>
+    <script src="~/assets/js/lib/data-table/vfs_fonts.js"></script>
+    <script src="~/assets/js/lib/data-table/buttons.html5.min.js"></script>
+    <script src="~/assets/js/lib/data-table/buttons.print.min.js"></script>
+    <script src="~/assets/js/lib/data-table/datatables-init.js"></script>
+    @*<script src="~/js/services.js"></script>*@
 }

@@ -1,40 +1,61 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using LaundrySystem.UI.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace LaundrySystem.UI.Controllers
 {
+    [Authorize]
     public class AccountController : Controller
     {
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
+        private UserManager<ApplicationUser> _userManager;
+        private SignInManager<ApplicationUser> _signInManager;
 
-        [HttpGet]
-        public IActionResult Login()
+        public AccountController(UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager)
+        {
+            _userManager = userManager;
+            _signInManager = signInManager;
+        }
+
+        public IActionResult Index()
         {
             return View();
         }
 
-        //[HttpPost]
-        //public IActionResult Login()
-        //{
-        //    return View();
-        //}
-
-        [HttpGet]
-        public IActionResult Register()
+        [AllowAnonymous]
+        public IActionResult Login(string returnUrl)
         {
-            return View();
+            LoginModel login = new LoginModel();
+            login.ReturnUrl = returnUrl;
+            return View(login);
         }
 
-        //[HttpPost]
-        //public IActionResult Register()
-        //{
-        //    return View();
-        //}
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                ApplicationUser appUser = await _userManager.FindByEmailAsync(model.Email);
+                if (appUser != null)
+                {
+                    await _signInManager.SignOutAsync();
+                    Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(appUser, model.Password, false, false);
+                    if (result.Succeeded)
+                        return Redirect(model.ReturnUrl ?? "/");
+                }
+                ModelState.AddModelError(nameof(model.Email), "Login Failed: Invalid Email or password");
+            }
+            return View(model);
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Dashboard");
+        }
     }
 }
