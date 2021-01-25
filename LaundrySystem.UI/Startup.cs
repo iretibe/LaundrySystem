@@ -58,7 +58,7 @@ namespace LaundrySystem.UI
             services.AddScoped<IServiceRepo, ServiceRepo>();
             services.AddScoped<ICustomerRepo, CustomerRepo>();
             services.AddScoped<IProductRepo, ProductRepo>();
-            //services.AddScoped<IProductPriceRepo, ProductPriceRepo>();
+            services.AddScoped<IDataRepo, DataRepo>();
             //services.AddScoped<IProductRepo, ProductRepo>();
             //services.AddScoped<IProductStockRepo, ProductStockRepo>();
             //services.AddScoped<IUserRepo, UserRepo>();

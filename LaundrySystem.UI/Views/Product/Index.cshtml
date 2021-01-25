@@ -36,9 +36,9 @@
 <table class="table" id="grdProduct">
     <thead>
         <tr>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.ServiceID)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.ProductName)
             </th>
@@ -64,9 +64,9 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.ServiceID)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.ProductName)
                 </td>

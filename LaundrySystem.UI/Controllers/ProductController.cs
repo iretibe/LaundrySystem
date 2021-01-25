@@ -94,7 +94,7 @@ namespace LaundrySystem.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductID,ServiceID,ProductName,ProductPrice,ProductImage,ProductDescription,AddedDate,CreatedBy")] tblProduct product)
+        public async Task<IActionResult> Create([Bind("ProductID,ProductName,ProductPrice,ProductImage,ProductDescription,AddedDate,CreatedBy")] tblProduct product)
         {
             if (ModelState.IsValid)
             {
@@ -127,7 +127,7 @@ namespace LaundrySystem.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("ProductID,ServiceID,ProductName,ProductPrice,ProductImage,ProductDescription,AddedDate,CreatedBy")] tblProduct product)
+        public async Task<IActionResult> Edit(Guid id, [Bind("ProductID,ProductName,ProductPrice,ProductImage,ProductDescription,AddedDate,CreatedBy")] tblProduct product)
         {
             if (id != product.ProductID)
             {
@@ -191,10 +191,11 @@ namespace LaundrySystem.UI.Controllers
             return _context.tblProduct.Any(e => e.ProductID == id);
         }
 
-        public JsonResult getProductUnitPrice(Guid ProductID)
-        {
-            decimal? UnitPrice = _context.tblProduct.Single(p => p.ProductID == ProductID).ProductPrice;
-            return Json(UnitPrice, JsonRequestBehavior.AllowGet);
-        }
+        //public JsonResult GetProductUnitPrice(Guid ProductID)
+        //{
+        //    decimal? UnitPrice = _context.tblProduct.Single(p => p.ProductID == ProductID).ProductPrice;
+        //    //return Json(UnitPrice, JsonRequestBehavior.AllowGet);
+        //    return Json(UnitPrice);
+        //}
     }
 }
