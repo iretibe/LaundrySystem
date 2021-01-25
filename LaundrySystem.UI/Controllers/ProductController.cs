@@ -21,28 +21,28 @@ namespace LaundrySystem.UI.Controllers
         // GET: Product
         public async Task<IActionResult> Index()
         {
-            var query = (from p in _context.tblProduct
-                   join s in _context.tblService
-                   on p.ServiceID equals s.ServiceId
-                   join a in _context.AspNetUsers
-                   on p.CreatedBy equals Guid.Parse(a.Id)
-                   select new ProductModel
-                   {
-                       ProductID = p.ProductID,
-                       ServiceID = p.ServiceID,
-                       ProductName = p.ProductName,
-                       ProductPrice = p.ProductPrice,
-                       ProductImage = p.ProductImage,
-                       ProductDescription = p.ProductDescription,
-                       AddedDate = p.AddedDate,
-                       CreatedBy = p.CreatedBy,
-                       ServiceName = s.ServiceName,
-                       UserName = a.UserName
-                   });
+            //var query = (from p in _context.tblProduct
+            //       join s in _context.tblService
+            //       on p.ServiceID equals s.ServiceId
+            //       join a in _context.AspNetUsers
+            //       on p.CreatedBy equals Guid.Parse(a.Id)
+            //       select new ProductModel
+            //       {
+            //           ProductID = p.ProductID,
+            //           ServiceID = p.ServiceID,
+            //           ProductName = p.ProductName,
+            //           ProductPrice = p.ProductPrice,
+            //           ProductImage = p.ProductImage,
+            //           ProductDescription = p.ProductDescription,
+            //           AddedDate = p.AddedDate,
+            //           CreatedBy = p.CreatedBy,
+            //           ServiceName = s.ServiceName,
+            //           UserName = a.UserName
+            //       });
 
-            return View(await query.ToListAsync());
+            //return View(await query.ToListAsync());
 
-            //return View(await _context.tblProduct.ToListAsync());
+            return View(await _context.tblProduct.ToListAsync());
         }
 
         // GET: Product/Details/5
@@ -53,28 +53,28 @@ namespace LaundrySystem.UI.Controllers
                 return NotFound();
             }
 
-            //var product = await _context.tblProduct
-            //    .FirstOrDefaultAsync(m => m.ProductID == id);
+            var product = await _context.tblProduct
+                .FirstOrDefaultAsync(m => m.ProductID == id);
 
-            var product = await (from p in _context.tblProduct
-                         join s in _context.tblService
-                         on p.ServiceID equals s.ServiceId
-                         join a in _context.AspNetUsers
-                         on p.CreatedBy equals Guid.Parse(a.Id)
-                         where p.ProductID == id
-                         select new ProductModel
-                         {
-                             ProductID = p.ProductID,
-                             ServiceID = p.ServiceID,
-                             ProductName = p.ProductName,
-                             ProductPrice = p.ProductPrice,
-                             ProductImage = p.ProductImage,
-                             ProductDescription = p.ProductDescription,
-                             AddedDate = p.AddedDate,
-                             CreatedBy = p.CreatedBy,
-                             ServiceName = s.ServiceName,
-                             UserName = a.UserName
-                         }).ToListAsync();
+            //var product = await (from p in _context.tblProduct
+            //             join s in _context.tblService
+            //             on p.ServiceID equals s.ServiceId
+            //             join a in _context.AspNetUsers
+            //             on p.CreatedBy equals Guid.Parse(a.Id)
+            //             where p.ProductID == id
+            //             select new ProductModel
+            //             {
+            //                 ProductID = p.ProductID,
+            //                 ServiceID = p.ServiceID,
+            //                 ProductName = p.ProductName,
+            //                 ProductPrice = p.ProductPrice,
+            //                 ProductImage = p.ProductImage,
+            //                 ProductDescription = p.ProductDescription,
+            //                 AddedDate = p.AddedDate,
+            //                 CreatedBy = p.CreatedBy,
+            //                 ServiceName = s.ServiceName,
+            //                 UserName = a.UserName
+            //             }).ToListAsync();
             if (product == null)
             {
                 return NotFound();
@@ -189,6 +189,12 @@ namespace LaundrySystem.UI.Controllers
         private bool ProductExists(Guid id)
         {
             return _context.tblProduct.Any(e => e.ProductID == id);
+        }
+
+        public JsonResult getProductUnitPrice(Guid ProductID)
+        {
+            decimal? UnitPrice = _context.tblProduct.Single(p => p.ProductID == ProductID).ProductPrice;
+            return Json(UnitPrice, JsonRequestBehavior.AllowGet);
         }
     }
 }

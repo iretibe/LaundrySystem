@@ -38,15 +38,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.ServiceName)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.ServiceImage)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.AddedDate)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.CreatedBy)
-            </th>
+            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -57,15 +57,15 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.ServiceName)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.ServiceImage)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.AddedDate)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.CreatedBy)
-                </td>
+                </td>*@
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.ServiceId" class="btn btn-warning">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.ServiceId" class="btn btn-dark">Details</a> |

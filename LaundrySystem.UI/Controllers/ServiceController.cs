@@ -127,7 +127,7 @@ namespace LaundrySystem.UI.Controllers
         // POST: Products/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(Guid? id)
         {
             var products = await _context.tblService.FindAsync(id);
             _context.tblService.Remove(products);

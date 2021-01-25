@@ -26,6 +26,7 @@ namespace LaundrySystem.UI.Entities
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
         public virtual DbSet<tblCategory> tblCategory { get; set; }
         public virtual DbSet<tblContact> tblContact { get; set; }
+        public virtual DbSet<tblCustomer> tblCustomer { get; set; }
         public virtual DbSet<tblProduct> tblProduct { get; set; }
         public virtual DbSet<tblSale> tblSale { get; set; }
         public virtual DbSet<tblSaleDetail> tblSaleDetail { get; set; }
@@ -37,7 +38,7 @@ namespace LaundrySystem.UI.Entities
         {
             if (!optionsBuilder.IsConfigured)
             {
-
+                optionsBuilder.UseSqlServer("Data Source=chacour.shop;Initial Catalog=LaundryDB;Persist Security Info=True;User ID=sa;Password=Chacour@2021");
             }
         }
 
@@ -105,6 +106,17 @@ namespace LaundrySystem.UI.Entities
                 entity.Property(e => e.MessageDate).HasDefaultValueSql("(getdate())");
             });
 
+            modelBuilder.Entity<tblCustomer>(entity =>
+            {
+                entity.Property(e => e.CustomerID).HasDefaultValueSql("(newid())");
+
+                entity.Property(e => e.AddedDate).HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.CustomerNo)
+                    .IsUnicode(false)
+                    .HasComputedColumnSql("('C'+left(newid(),(4)))");
+            });
+
             modelBuilder.Entity<tblProduct>(entity =>
             {
                 entity.HasIndex(e => e.ProductName)
@@ -169,5 +181,7 @@ namespace LaundrySystem.UI.Entities
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
         public DbSet<LaundrySystem.UI.Models.ProductModel> ProductModel { get; set; }
+
+        public DbSet<LaundrySystem.UI.Models.spSelectSaleDetails> spSelectSaleDetails { get; set; }
     }
 }

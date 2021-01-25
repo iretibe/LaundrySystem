@@ -1,4 +1,4 @@
-﻿@model IEnumerable<LaundrySystem.UI.Models.ProductModel>
+﻿@model IEnumerable<LaundrySystem.UI.Entities.tblProduct>
 
 @{
     ViewData["Title"] = "Index";
@@ -22,7 +22,7 @@
             <div class="page-title">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a asp-controller="Dashboard" asp-action="Index">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Services</li>
+                    <li class="breadcrumb-item active">Product</li>
                 </ol>
             </div>
         </div>
@@ -36,18 +36,18 @@
 <table class="table" id="grdProduct">
     <thead>
         <tr>
-            @*<th>
-                    @Html.DisplayNameFor(model => model.ServiceID)
-                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceID)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.ProductName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ProductPrice)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.ProductImage)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.ProductDescription)
             </th>
@@ -55,14 +55,8 @@
                 @Html.DisplayNameFor(model => model.AddedDate)
             </th>
             @*<th>
-                    @Html.DisplayNameFor(model => model.CreatedBy)
-                </th>*@
-            <th>
-                @Html.DisplayNameFor(model => model.ServiceName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UserName)
-            </th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>*@
             <th></th>
         </tr>
     </thead>
@@ -70,18 +64,18 @@
         @foreach (var item in Model)
         {
             <tr>
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.ServiceID)
-                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.ServiceID)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ProductName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ProductPrice)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.ProductImage)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.ProductDescription)
                 </td>
@@ -89,14 +83,8 @@
                     @Html.DisplayFor(modelItem => item.AddedDate)
                 </td>
                 @*<td>
-                        @Html.DisplayFor(modelItem => item.CreatedBy)
-                    </td>*@
-                <td>
-                    @Html.DisplayFor(modelItem => item.ServiceName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UserName)
-                </td>
+                    @Html.DisplayFor(modelItem => item.CreatedBy)
+                </td>*@
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.ProductID" class="btn btn-warning">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.ProductID" class="btn btn-dark">Details</a> |

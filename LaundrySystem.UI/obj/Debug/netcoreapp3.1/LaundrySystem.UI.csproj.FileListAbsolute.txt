@@ -383,7 +383,6 @@ C:\PROJECTS\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\S
 C:\PROJECTS\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\Service\Delete.cshtml.g.cs
 C:\Users\user\Pictures\LaundrySystem\LaundrySystem.UI\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\user\Pictures\LaundrySystem\LaundrySystem.UI\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\user\Pictures\LaundrySystem\LaundrySystem.UI\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\user\Pictures\LaundrySystem\LaundrySystem.UI\bin\Debug\netcoreapp3.1\efpt.config.json
 C:\Users\user\Pictures\LaundrySystem\LaundrySystem.UI\bin\Debug\netcoreapp3.1\LaundrySystem.UI.exe
 C:\Users\user\Pictures\LaundrySystem\LaundrySystem.UI\bin\Debug\netcoreapp3.1\LaundrySystem.UI.deps.json
@@ -570,4 +569,9 @@ C:\Users\user\Pictures\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\Ra
 C:\Users\user\Pictures\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\User\Edit.cshtml.g.cs
 C:\Users\user\Pictures\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LoginLayout.cshtml.g.cs
 C:\Users\user\Pictures\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\User\Delete.cshtml.g.cs
-C:\Users\user\Pictures\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\Razor\Controllers\Login.cshtml.g.cs
+C:\Users\user\Pictures\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\user\Pictures\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\Customer\Details.cshtml.g.cs
+C:\Users\user\Pictures\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\Customer\Create.cshtml.g.cs
+C:\Users\user\Pictures\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\Customer\Edit.cshtml.g.cs
+C:\Users\user\Pictures\LaundrySystem\LaundrySystem.UI\obj\Debug\netcoreapp3.1\Razor\Views\Customer\Delete.cshtml.g.cs
+C:\Users\user\Pictures\LaundrySystem\LaundrySystem.UI\bin\Debug\netcoreapp3.1\Properties\launchSettings.json

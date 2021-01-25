@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LaundrySystem.UI.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class AccountController : Controller
     {
         private UserManager<ApplicationUser> _userManager;

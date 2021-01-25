@@ -1,4 +1,280 @@
-﻿@{
-    ViewData["Title"] = "Order";
+﻿@*@model IEnumerable<LaundrySystem.UI.Models.spSelectSaleDetails>*@
+@model Tuple<IEnumerable<SelectListItem>, IEnumerable<SelectListItem>, IEnumerable<SelectListItem>>
+
+@{
+    ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Setup.cshtml";
+}
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Setup.cshtml";
+}
+
+@section Styles {
+    <link href="~/assets/css/lib/data-table/buttons.bootstrap.min.css" rel="stylesheet" />
+}
+<div class="row">
+    <div class="col-lg-8 p-r-0 title-margin-right">
+        <div class="page-header">
+            <div class="page-title">
+                <h1>Hello, <span>Welcome Here</span></h1>
+            </div>
+        </div>
+    </div>
+    <!-- /# column -->
+    <div class="col-lg-4 p-l-0 title-margin-left">
+        <div class="page-header">
+            <div class="page-title">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-controller="Dashboard" asp-action="Index">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Sale</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <!-- /# column -->
+</div>
+
+<fieldset>
+    <legend>
+        Order
+    </legend>
+
+    <div class="controller">
+        <div class="row">
+            <div class="col-md-6">
+                Customer:
+                @Html.DropDownList("Customer", new SelectList(Model.Item1, "Value", "Text"),
+                    new { @class = "form-control" })
+            </div>
+
+            <div class="col-md-6">
+                Service:
+                @Html.DropDownList("Service", new SelectList(Model.Item3, "Value", "Text"),
+                    new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                Product:
+                @Html.DropDownList("Product", new SelectList(Model.Item2, "Value", "Text"),
+                    new { @class = "form-control" })
+            </div>
+
+            <div class="col-md-4">
+                Unit Price:
+                <input type="text" readonly="readonly" id="txtUnitPrice" value="0.00" name="UnitPrice" class="form-control" />
+            </div>
+
+            <div class="col-md-4">
+                Quantity:
+                <input type="text" id="txtQuantity" value="0.00" name="Quantity" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                Discount:
+                <input type="text" id="txtDiscount" value="0.00" name="Discount" class="form-control" />
+            </div>
+
+            <div class="col-md-4">
+                Total:
+                <input type="text" readonly="readonly" id="txtTotal" value="0.00" name="Total" class="form-control" />
+            </div>
+
+            <div class="col-md-4">
+                <input type="button" id="btnAddToList" value="Add To List" name="AddToList" class="btn btn-success" style="margin-top:20px" />
+            </div>
+        </div>
+    </div>
+</fieldset>
+
+<fieldset>
+    <legend>Order Details</legend>
+
+    <table style="width:100%">
+        <thead>
+            <tr>
+                <th hidden>Product ID</th>
+                <th>Product Name</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
+                <th>Discount</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+    </table>
+</fieldset>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table" id="grdSale">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QtySold)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SellingPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SaleNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SaleDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SaleTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NetTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Balance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderStatusName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QtySold)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SellingPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductImage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SaleNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SaleDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SaleTotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NetTotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Balance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderStatusName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.SaleID" class="btn btn-warning">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.SaleID" class="btn btn-dark">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.SaleID" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>*@
+
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var itemId = $("Product").val();
+            $("Product").change(function () {
+                GetProductUnitPrice(itemId);
+            })
+        });
+
+        function GetProductUnitPrice(ProductID) {
+            $.ajax({
+                async: true,
+                type: 'GET',
+                dataType: 'JSON',
+                contentType: 'application/json; charset-utf-8',
+                data: { ProductID: ProductID },
+                url: '/product/getProductUnitPrice',
+                success: function (data) {
+
+                },
+                error: function () {
+                    alert("An error occurred getting the Unit Price! Please contact your administrator");
+                }
+            });
+        }
+    </script>
+    @*<script>
+        $("#grdSale").dataTable({
+
+        });
+    </script>*@
+    <script src="~/assets/js/lib/data-table/datatables.min.js"></script>
+    <script src="~/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
+    <script src="~/assets/js/lib/data-table/buttons.flash.min.js"></script>
+    <script src="~/assets/js/lib/data-table/jszip.min.js"></script>
+    <script src="~/assets/js/lib/data-table/pdfmake.min.js"></script>
+    <script src="~/assets/js/lib/data-table/vfs_fonts.js"></script>
+    <script src="~/assets/js/lib/data-table/buttons.html5.min.js"></script>
+    <script src="~/assets/js/lib/data-table/buttons.print.min.js"></script>
+    <script src="~/assets/js/lib/data-table/datatables-init.js"></script>
+    @*<script src="~/js/services.js"></script>*@
 }

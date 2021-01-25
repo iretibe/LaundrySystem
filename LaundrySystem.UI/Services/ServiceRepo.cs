@@ -1,4 +1,5 @@
 ﻿using LaundrySystem.UI.Entities;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,37 +12,51 @@ namespace LaundrySystem.UI.Services
     {
         private LaundrydbContext _context;
 
-        public ServiceRepo(LaundrydbContext context)
+        public ServiceRepo()
         {
-            _context = context ?? throw new ArgumentNullException(nameof(context));
+            _context = new LaundrydbContext();
         }
 
-        public async Task AddServiceAsync(tblService model)
+        //public async Task AddServiceAsync(tblService model)
+        //{
+        //    await _context.tblService.AddAsync(model);
+        //}
+
+        //public void Commit()
+        //{
+        //    _context.SaveChanges();
+        //}
+
+        //public async Task DeleteServiceAsync(tblService entity)
+        //{
+        //    var idT = await _context.tblService.FindAsync(entity.ServiceId);
+        //    _context.tblService.Remove(idT);
+        //    //await _context.SaveChangesAsync();
+        //}
+
+        public IEnumerable<SelectListItem> GetAllServices()
         {
-            await _context.tblService.AddAsync(model);
+            var obj = new List<SelectListItem>();
+            obj = (from p in _context.tblService
+                   select new SelectListItem()
+                   {
+                       Text = p.ServiceName,
+                       Value = p.ServiceId.ToString(),
+                       Selected = true
+                   }).ToList();
+
+            return obj;
         }
 
-        public void Commit()
-        {
-            _context.SaveChanges();
-        }
+        //public async Task<IEnumerable<tblService>> GetAllServicesAsync()
+        //{
+        //    return await _context.tblService.ToListAsync();
+        //}
 
-        public async Task DeleteServiceAsync(tblService entity)
-        {
-            var idT = await _context.tblService.FindAsync(entity.ServiceId);
-            _context.tblService.Remove(idT);
-            //await _context.SaveChangesAsync();
-        }
-
-        public async Task<IEnumerable<tblService>> GetAllServicesAsync()
-        {
-            return await _context.tblService.ToListAsync();
-        }
-
-        public tblService GetService(Guid ServiceID)
-        {
-            return _context.tblService.FirstOrDefault(c => c.ServiceId == ServiceID);
-        }
+        //public tblService GetService(Guid ServiceID)
+        //{
+        //    return _context.tblService.FirstOrDefault(c => c.ServiceId == ServiceID);
+        //}
 
         //public async Task<IEnumerable<tblService>> GetServicesAsync()
         //{
