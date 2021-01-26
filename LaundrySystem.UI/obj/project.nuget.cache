@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vRC4LoFQqxzr4WXUP3xcrGVM4MvOJVULsfbwqvPuvPX8atJGsbZsi+rr0idqiRe8Y6AAoUzvHJjsNvF6Tiv4Bw==",
+  "dgSpecHash": "IUiknJoncclt0jN6JrR3O0UHkdXc1KmZVljy/lERQa5LpCdKy9+x6oX9IAFwIOFlK8xixgTqDB8ZblbGhJkOhQ==",
   "success": true,
-  "projectFilePath": "C:\\Microservices\\LaundrySystem\\LaundrySystem.UI\\LaundrySystem.UI.csproj",
+  "projectFilePath": "C:\\PROJECTS\\LaundrySystem\\LaundrySystem.UI\\LaundrySystem.UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Somad\\.nuget\\packages\\automapper\\10.1.0\\automapper.10.1.0.nupkg.sha512",
     "C:\\Users\\Somad\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.0\\automapper.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",

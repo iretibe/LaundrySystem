@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LaundrySystem.UI.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class AccountController : Controller
     {
         private UserManager<ApplicationUser> _userManager;
@@ -37,19 +37,27 @@ namespace LaundrySystem.UI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginModel model)
         {
-            if (ModelState.IsValid)
+            try
             {
-                ApplicationUser appUser = await _userManager.FindByEmailAsync(model.Email);
-                if (appUser != null)
+                if (ModelState.IsValid)
                 {
-                    await _signInManager.SignOutAsync();
-                    Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(appUser, model.Password, false, false);
-                    if (result.Succeeded)
-                        return Redirect(model.ReturnUrl ?? "/");
+                    ApplicationUser appUser = await _userManager.FindByEmailAsync(model.Email);
+                    if (appUser != null)
+                    {
+                        await _signInManager.SignOutAsync();
+                        Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(appUser, model.Password, false, false);
+                        if (result.Succeeded)
+                            //return Redirect(model.ReturnUrl ?? "/");
+                            return RedirectToAction("Index", "Home");
+                    }
+                    ModelState.AddModelError(nameof(model.Email), "Login Failed: Invalid Email or password");
                 }
-                ModelState.AddModelError(nameof(model.Email), "Login Failed: Invalid Email or password");
+                return View(model);
             }
-            return View(model);
+            catch (System.Exception ex)
+            {
+                throw ex;
+            }            
         }
 
         public async Task<IActionResult> Logout()

@@ -8829,11 +8829,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Microservices\\LaundrySystem\\LaundrySystem.UI\\LaundrySystem.UI.csproj",
+      "projectUniqueName": "C:\\PROJECTS\\LaundrySystem\\LaundrySystem.UI\\LaundrySystem.UI.csproj",
       "projectName": "LaundrySystem.UI",
-      "projectPath": "C:\\Microservices\\LaundrySystem\\LaundrySystem.UI\\LaundrySystem.UI.csproj",
+      "projectPath": "C:\\PROJECTS\\LaundrySystem\\LaundrySystem.UI\\LaundrySystem.UI.csproj",
       "packagesPath": "C:\\Users\\Somad\\.nuget\\packages\\",
-      "outputPath": "C:\\Microservices\\LaundrySystem\\LaundrySystem.UI\\obj\\",
+      "outputPath": "C:\\PROJECTS\\LaundrySystem\\LaundrySystem.UI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

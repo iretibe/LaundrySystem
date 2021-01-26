@@ -6,12 +6,6 @@
     Layout = "~/Views/Shared/_Setup.cshtml";
 }
 
-
-@{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Setup.cshtml";
-}
-
 @section Styles {
     <link href="~/assets/css/lib/data-table/buttons.bootstrap.min.css" rel="stylesheet" />
 }
@@ -44,44 +38,51 @@
 
     <div class="controller">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 Customer:
                 @Html.DropDownList("Customer", new SelectList(Model.Item1, "Value", "Text"),
-                    new { @class = "form-control" })
+                    new { @class = "form-control", id = "cboCustomer" })
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-4">
                 Service:
                 @Html.DropDownList("Service", new SelectList(Model.Item3, "Value", "Text"),
-                    new { @class = "form-control" })
+                    new { @class = "form-control", id = "cboService" })
+            </div>
+
+            <div class="col-md-4">
+                Grand Total:
+                <input type="text" readonly="readonly" id="txtFinalTotal" class="form-control" value="0.00" style="color:blue; text-align:right" name="FinalTotal" />
             </div>
         </div>
         <div class="row">
             <div class="col-md-4">
                 Product:
+                @*@Html.DropDownList("Product", new SelectList(Model.Item2, "Value", "Text"),
+                    new { @class = "form-control", id = "cboProduct" })*@
                 @Html.DropDownList("Product", new SelectList(Model.Item2, "Value", "Text"),
                     new { @class = "form-control", id = "cboProduct" })
             </div>
 
             <div class="col-md-4">
                 Unit Price:
-                <input type="text" readonly="readonly" id="txtUnitPrice" value="0.00" name="UnitPrice" class="form-control" />
+                <input type="text" style="text-align:right" readonly="readonly" id="txtUnitPrice" value="0.00" name="UnitPrice" class="form-control" />
             </div>
 
             <div class="col-md-4">
                 Quantity:
-                <input type="text" id="txtQuantity" value="0.00" name="Quantity" class="form-control" />
+                <input type="text" style="text-align:right" id="txtQuantity" value="0" name="Quantity" class="form-control" />
             </div>
         </div>
         <div class="row">
             <div class="col-md-4">
                 Discount:
-                <input type="text" id="txtDiscount" value="0.00" name="Discount" class="form-control" />
+                <input type="text" style="text-align:right" id="txtDiscount" value="0.00" name="Discount" class="form-control" />
             </div>
 
             <div class="col-md-4">
                 Total:
-                <input type="text" readonly="readonly" id="txtTotal" value="0.00" name="Total" class="form-control" />
+                <input type="text" style="text-align:right" readonly="readonly" id="txtTotal" value="0.00" name="Total" class="form-control" />
             </div>
 
             <div class="col-md-4">
@@ -94,20 +95,65 @@
 <fieldset>
     <legend>Order Details</legend>
 
-    <table style="width:100%">
+    <table style="width:100%" id="tblOrderItemList">
         <thead>
             <tr>
                 <th hidden>Product ID</th>
                 <th>Product Name</th>
                 <th>Unit Price</th>
                 <th>Quantity</th>
-                <th>Discount</th>
                 <th>Total</th>
                 <th>Action</th>
             </tr>
         </thead>
     </table>
 </fieldset>
+
+<div style="margin-top: 10px;">
+    <input data-backdrop="static" data-keydrop="false" data-toggle="modal" data-target="#divPayment" style="float:right" type="button" value="Checkout" name="checkout" id="btnCheckout" class="btn btn-primary" />
+</div>
+
+<div id="divPayment" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"></button>
+                <h4 class="modal-title">Payment</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            Payment Total:
+                            <input style="text-align: right;" type="text" id="txtPaymentTotal" readonly value="0.00" class="form-control"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            Payment Amount:
+                            <input style="text-align: right;" type="text" id="txtPaymentAmount" value="0.00" class="form-control"/>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            Return Total:
+                            <input style="text-align: right;" type="text" id="txtReturnTotal" value="0.00" class="form-control"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            Balance:
+                            <input style="text-align: right;" type="text" id="txtBalance" readonly value="0.00" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-success" id="btnPayment" value="Payment">Payment</button>
+                <button class="btn btn-danger" id="btnClose" data-dismiss="modal" value="Close">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 @section Scripts{    

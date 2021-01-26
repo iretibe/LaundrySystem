@@ -1,8 +1,12 @@
 ﻿using LaundrySystem.UI.Entities;
+using LaundrySystem.UI.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace LaundrySystem.UI.Controllers
@@ -10,10 +14,12 @@ namespace LaundrySystem.UI.Controllers
     public class UserController : Controller
     {
         private LaundrydbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public UserController(LaundrydbContext context)
+        public UserController(LaundrydbContext context, UserManager<ApplicationUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Product
@@ -52,16 +58,59 @@ namespace LaundrySystem.UI.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserName,NormalizedUserName,Email,NormalizedEmail,EmailConfirmed,PasswordHash,SecurityStamp,ConcurrencyStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEnd,LockoutEnabled,AccessFailedCount,FirstName,LastName,Address,City,IsAdmin,Picture,DateAdded")] AspNetUsers product)
+        public async Task<IActionResult> Create( AspNetUsers product)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
+            //{
+            //    //product.Id = string.Empty;
+            //    _context.Add(product);
+            //    await _context.SaveChangesAsync();
+            //    return RedirectToAction(nameof(Edit), new { id = product.Id });
+            //}
+            //return View(product);
+
+            var appUser = new ApplicationUser()
             {
-                product.Id = string.Empty;
-                _context.Add(product);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Edit), new { id = product.Id });
+                UserName = product.UserName,
+                Email = product.Email,
+                PhoneNumber = product.PhoneNumber,
+                FirstName = product.FirstName,
+                LastName = product.LastName,
+                Address = product.Address,
+                City = product.City
+            };
+
+            try
+            {
+                IdentityResult result = await _userManager.CreateAsync(appUser, product.PasswordHash);
+
+                if (result.Succeeded)
+                {
+                    var claims = new List<Claim>
+                    {
+                        new Claim("GivenName", appUser.UserName),
+                        new Claim("FamilyName", appUser.FirstName + " " + appUser.LastName),
+                        new Claim("WebSite", appUser.Id),
+                        new Claim("Email", appUser.Email),
+                        new Claim("PhoneNumber", appUser.PhoneNumber)
+                    };
+
+                    await _userManager.AddClaimsAsync(appUser, claims);
+
+                    //return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    return BadRequest();
+                }
+
+                //return View(product);
+                return RedirectToAction(nameof(Index));
             }
-            return View(product);
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         // GET: Product/Edit/5

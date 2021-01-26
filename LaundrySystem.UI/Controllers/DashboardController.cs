@@ -1,17 +1,15 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using LaundrySystem.UI.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace LaundrySystem.UI.Controllers
 {
-   //[Authorize]
+    [Authorize]
     public class DashboardController : Controller
     {
         public IActionResult Index()
-        {
+        {            
             return View();
         }
     }

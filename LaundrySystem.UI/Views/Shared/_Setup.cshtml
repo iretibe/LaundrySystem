@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<LaundrySystem.UI.Models.ApplicationUser> _signInManager
+@inject UserManager<LaundrySystem.UI.Models.ApplicationUser> _userManager
+@{
+    var user = await _userManager.GetUserAsync(User);
+}
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -47,7 +54,7 @@
                     @*<li class="label">Main</li>*@
                     <li>
                         <a class="sidebar-sub-toggle" asp-controller="Dashboard" asp-action="Index">
-                            <i class="ti-home"></i> Dashboard <span class="badge badge-primary"></span> <span class="sidebar-collapse-icon ti-angle-down"></span>
+                            <i class="ti-home"></i> Dashboard <span class="badge badge-primary"></span> 
                         </a>
                         @*<ul>
                                 <li><a href="index.html">Dashboard 1</a></li>
@@ -78,23 +85,23 @@
                     <li><a asp-controller="User" asp-action="Index"><i class="ti-layout-grid2-alt"></i> User</a></li>
                     @*<li class="label">Features</li>*@
                     @*<li>
-                        <a class="sidebar-sub-toggle">
-                            <i class="ti-layout"></i> UI Elements <span class="sidebar-collapse-icon ti-angle-down"></span>
-                        </a>
-                        <ul>
-                            <li><a href="ui-typography.html">Typography</a></li>
-                            <li><a href="ui-alerts.html">Alerts</a></li>
+                            <a class="sidebar-sub-toggle">
+                                <i class="ti-layout"></i> UI Elements <span class="sidebar-collapse-icon ti-angle-down"></span>
+                            </a>
+                            <ul>
+                                <li><a href="ui-typography.html">Typography</a></li>
+                                <li><a href="ui-alerts.html">Alerts</a></li>
 
-                            <li><a href="ui-button.html">Button</a></li>
-                            <li><a href="ui-dropdown.html">Dropdown</a></li>
+                                <li><a href="ui-button.html">Button</a></li>
+                                <li><a href="ui-dropdown.html">Dropdown</a></li>
 
-                            <li><a href="ui-list-group.html">List Group</a></li>
+                                <li><a href="ui-list-group.html">List Group</a></li>
 
-                            <li><a href="ui-progressbar.html">Progressbar</a></li>
-                            <li><a href="ui-tab.html">Tab</a></li>
+                                <li><a href="ui-progressbar.html">Progressbar</a></li>
+                                <li><a href="ui-tab.html">Tab</a></li>
 
-                        </ul>
-                    </li>*@
+                            </ul>
+                        </li>*@
                     @*<li>
                             <a class="sidebar-sub-toggle">
                                 <i class="ti-panel"></i> Components <span class="sidebar-collapse-icon ti-angle-down"></span>
@@ -117,17 +124,17 @@
                             </ul>
                         </li>*@
                     @*<li>
-                        <a class="sidebar-sub-toggle">
-                            <i class="ti-layout-grid4-alt"></i> Table <span class="sidebar-collapse-icon ti-angle-down"></span>
-                        </a>
-                        <ul>
-                            <li><a href="table-basic.html">Basic</a></li>
+                            <a class="sidebar-sub-toggle">
+                                <i class="ti-layout-grid4-alt"></i> Table <span class="sidebar-collapse-icon ti-angle-down"></span>
+                            </a>
+                            <ul>
+                                <li><a href="table-basic.html">Basic</a></li>
 
-                            <li><a href="table-export.html">Datatable Export</a></li>
-                            <li><a href="table-row-select.html">Datatable Row Select</a></li>
-                            <li><a href="table-jsgrid.html">Editable </a></li>
-                        </ul>
-                    </li>*@
+                                <li><a href="table-export.html">Datatable Export</a></li>
+                                <li><a href="table-row-select.html">Datatable Row Select</a></li>
+                                <li><a href="table-jsgrid.html">Editable </a></li>
+                            </ul>
+                        </li>*@
                     @*<li>
                             <a class="sidebar-sub-toggle">
                                 <i class="ti-heart"></i> Icons <span class="sidebar-collapse-icon ti-angle-down"></span>
@@ -149,24 +156,24 @@
                         <li><a href="form-basic.html"><i class="ti-view-list-alt"></i> Basic Form </a></li>
                         <li class="label">Extra</li>*@
                     @*<li>
-                        <a class="sidebar-sub-toggle">
-                            <i class="ti-files"></i> Invoice <span class="sidebar-collapse-icon ti-angle-down"></span>
-                        </a>
-                        <ul>
-                            <li><a href="invoice.html">Basic</a></li>
-                            <li><a href="invoice-editable.html">Editable</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="sidebar-sub-toggle">
-                            <i class="ti-target"></i> Pages <span class="sidebar-collapse-icon ti-angle-down"></span>
-                        </a>
-                        <ul>
-                            <li><a href="page-login.html">Login</a></li>
-                            <li><a href="page-register.html">Register</a></li>
-                            <li><a href="page-reset-password.html">Forgot password</a></li>
-                        </ul>
-                    </li>*@
+                            <a class="sidebar-sub-toggle">
+                                <i class="ti-files"></i> Invoice <span class="sidebar-collapse-icon ti-angle-down"></span>
+                            </a>
+                            <ul>
+                                <li><a href="invoice.html">Basic</a></li>
+                                <li><a href="invoice-editable.html">Editable</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="sidebar-sub-toggle">
+                                <i class="ti-target"></i> Pages <span class="sidebar-collapse-icon ti-angle-down"></span>
+                            </a>
+                            <ul>
+                                <li><a href="page-login.html">Login</a></li>
+                                <li><a href="page-register.html">Register</a></li>
+                                <li><a href="page-reset-password.html">Forgot password</a></li>
+                            </ul>
+                        </li>*@
                     @*<li><a href="../documentation/index.html"><i class="ti-file"></i> Documentation</a></li>*@
                     <li><a asp-controller="Account" asp-action="Login"><i class="ti-close"></i> Logout</a></li>
                 </ul>
@@ -187,7 +194,7 @@
                         </div>
                     </div>
                     <div class="float-right">
-                        <div class="dropdown dib">
+                        @*<div class="dropdown dib">
                             <div class="header-icon" data-toggle="dropdown">
                                 <i class="ti-bell"></i>
                                 <div class="drop-down dropdown-menu dropdown-menu-right">
@@ -353,55 +360,58 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>*@
                         <div class="dropdown dib">
                             <div class="header-icon" data-toggle="dropdown">
-                                <span class="user-avatar">
-                                    John
-                                    <i class="ti-angle-down f-s-10"></i>
-                                </span>
-                                <div class="drop-down dropdown-profile dropdown-menu dropdown-menu-right">
-                                    <div class="dropdown-content-heading">
-                                        <span class="text-left">Upgrade Now</span>
-                                        <p class="trial-day">30 Days Trail</p>
-                                    </div>
-                                    <div class="dropdown-content-body">
-                                        <ul>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="ti-user"></i>
-                                                    <span>Profile</span>
-                                                </a>
-                                            </li>
+                                @if (_signInManager.IsSignedIn(User))
+                                {
+                                    <span class="user-avatar">
+                                        @(user.UserName)
+                                        <i class="ti-angle-down f-s-10"></i>
+                                    </span>
+                                    <div class="drop-down dropdown-profile dropdown-menu dropdown-menu-right">
+                                        <div class="dropdown-content-heading">
+                                            <span class="text-left">Upgrade Now</span>
+                                            <p class="trial-day">30 Days Trail</p>
+                                        </div>
+                                        <div class="dropdown-content-body">
+                                            <ul>
+                                                @*<li>
+                                                    <a href="#">
+                                                        <i class="ti-user"></i>
+                                                        <span>Profile</span>
+                                                    </a>
+                                                </li>
 
-                                            <li>
-                                                <a href="#">
-                                                    <i class="ti-email"></i>
-                                                    <span>Inbox</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="ti-settings"></i>
-                                                    <span>Setting</span>
-                                                </a>
-                                            </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="ti-email"></i>
+                                                        <span>Inbox</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="ti-settings"></i>
+                                                        <span>Setting</span>
+                                                    </a>
+                                                </li>
 
-                                            <li>
-                                                <a href="#">
-                                                    <i class="ti-lock"></i>
-                                                    <span>Lock Screen</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <i class="ti-power-off"></i>
-                                                    <span>Logout</span>
-                                                </a>
-                                            </li>
-                                        </ul>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="ti-lock"></i>
+                                                        <span>Lock Screen</span>
+                                                    </a>
+                                                </li>*@
+                                                <li>
+                                                    <a asp-area="" asp-controller="Account" asp-action="Logout">
+                                                        <i class="ti-power-off"></i>
+                                                        <span>Logout</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -422,18 +432,18 @@
                             </div>
                         </div>
                     </div>-->
-                    <!-- /# column -->
-                    <!--<div class="col-lg-4 p-l-0 title-margin-left">
-                        <div class="page-header">
-                            <div class="page-title">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Home</li>
-                                </ol>
-                            </div>
+                <!-- /# column -->
+                <!--<div class="col-lg-4 p-l-0 title-margin-left">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Home</li>
+                            </ol>
                         </div>
-                    </div>-->
-                    <!-- /# column -->
+                    </div>
+                </div>-->
+                <!-- /# column -->
                 <!--</div>-->
                 <!-- /# row -->
                 <section id="main-content">
